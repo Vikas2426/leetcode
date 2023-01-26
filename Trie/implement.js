@@ -3,17 +3,11 @@
 var  Trie = function() {
     this.flag = false;
     this.links = new Array(26).fill(false);
-
+    this.containsKey = function(key){
+        return this.links[key.charCodeAt(0)-'a'.charCodeAt(0)];
+    
+    }
 };
-
-/** 
- * @param {char} key
- * @return {bool}
- */
-Trie.prototype.containsKey = function(key){
-    return this.links[key.charCodeAt(0)-'a'.charCodeAt(0)];
-
-}
 
 /** 
  * @param {string} word
@@ -67,6 +61,7 @@ var obj = new Trie()
 obj.insert('vikas');
 console.log(obj.search('vikas'))
 console.log(obj.startsWith('aikas'));
+console.log(Trie);
 /** 
  * Your Trie object will be instantiated and called as such:
  */
